@@ -5,7 +5,7 @@ const router = express.Router();
 const User = require("../models/users");
 
 // Middleware
-const getUser = require("../middleware/getUserById");
+const getUserById = require("../middleware/getUserById");
 
 // Getting all
 router.get("/", async (req, res) => {
@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
 
 // Getting one
 router.get("/:id", getUserById, (req, res) => {
-  res.send(res.user.data.name);
+  res.json(res.user);
 });
 
 // Creating one
@@ -36,9 +36,25 @@ router.post("/", async (req, res) => {
 });
 
 // Updating one
-router.patch("/:id:", (req, res) => {});
+router.patch("/:id:", getUserById, async (req, res) => {
+  if (req.body.name != null) res.user.data.name = req.body.name;
+
+  try {
+    const updatedUser = await res.user.save();
+    res.json(updatedUser);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
 
 // Deleting one
-router.delete("/:id", (req, res) => {});
+router.delete("/:id", getUserById, async (req, res) => {
+  try {
+    await res.user.remove();
+    res.json({ message: "Deleted user" });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
 
 module.exports = router;

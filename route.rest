@@ -18,6 +18,16 @@ Content-Type: application/json
 }
 
 
-### 
+###
+
 
 GET http://localhost:3000/users/5efa0b3bdf8bc4527f1abc08
+
+
+###
+
+
+DELETE http://localhost:3000/users/5efa0b3bdf8bc4527f1abc08
+
+
+###
