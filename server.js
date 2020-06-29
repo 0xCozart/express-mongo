@@ -19,8 +19,8 @@ db.on("open", () => console.log(`Connected to database.`));
 
 app.use(express.json());
 
-const testerRouter = require("./routes/testers.js");
+const userRouter = require("./routes/users.js");
 
-app.use("/testers", testerRouter);
+app.use("/users", userRouter);
 
 app.listen(PORT, console.log(`Server listening on port: ${PORT}`));

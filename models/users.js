@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 // const uuidv5 = require("uuid/v5");
 
-const testerSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   data: {
     name: {
       type: String,
@@ -15,4 +15,4 @@ const testerSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Testers", testerSchema);
+module.exports = mongoose.model("User", userSchema);

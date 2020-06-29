@@ -2,31 +2,34 @@ const express = require("express");
 const router = express.Router();
 
 // Models
-const Tester = require("../models/testers");
+const User = require("../models/users");
+
+// Middleware
+const getUser = require("../middleware/getUserById");
 
 // Getting all
 router.get("/", async (req, res) => {
   try {
-    const testers = await Tester.find();
-    res.send(testers);
+    const users = await User.find();
+    res.send(users);
   } catch {
     res.status(500).json({ message: err.message });
   }
 });
 
 // Getting one
-router.get("/:id", (req, res) => {
-  res.send(req.params.id);
+router.get("/:id", getUserById, (req, res) => {
+  res.send(res.user.data.name);
 });
 
 // Creating one
 router.post("/", async (req, res) => {
-  const tester = new Tester({
+  const user = new User({
     data: { name: req.body.name, testDate: req.body.testDate },
   });
   try {
-    const newTester = await tester.save();
-    res.status(201).send(newTester);
+    const newuser = await user.save();
+    res.status(201).send(newuser);
   } catch (err) {
     res.status(400).json({ message: err.message });
   }

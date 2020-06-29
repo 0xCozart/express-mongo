@@ -1,18 +1,23 @@
-GET http://localhost:3000/testers
+GET http://localhost:3000/users
 
 
 ###
 
 
-GET http://localhost:3000/testers/12
+GET http://localhost:3000/users/12
 
 
 ####
 
 
-POST http://localhost:3000/testers/
+POST http://localhost:3000/users/
 Content-Type: application/json
 
 {
   "name": "Alan Vega"
 }
+
+
+### 
+
+GET http://localhost:3000/users/5efa0b3bdf8bc4527f1abc08
