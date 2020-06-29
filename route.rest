@@ -5,3 +5,14 @@ GET http://localhost:3000/testers
 
 
 GET http://localhost:3000/testers/12
+
+
+####
+
+
+POST http://localhost:3000/testers/
+Content-Type: application/json
+
+{
+  "name": "Alan Vega"
+}

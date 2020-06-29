@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 // const uuidv5 = require("uuid/v5");
 
 const testerSchema = new mongoose.Schema({
-  id: {},
   data: {
     name: {
       type: String,

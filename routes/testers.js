@@ -21,12 +21,14 @@ router.get("/:id", (req, res) => {
 
 // Creating one
 router.post("/", async (req, res) => {
+  const tester = new Tester({
+    data: { name: req.body.name, testDate: req.body.testDate },
+  });
   try {
-    const tester = new Tester({
-      data: { name: "Alan", testDate: Date.now },
-    });
-  } catch (e) {
-    res.status(500).json({ message: err.message });
+    const newTester = await tester.save();
+    res.status(201).send(newTester);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
   }
 });
 
