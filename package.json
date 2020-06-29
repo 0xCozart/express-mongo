@@ -19,7 +19,8 @@
   "homepage": "https://github.com/AlanVegaDecentralize/express-mongo#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.9.20"
+    "mongoose": "^5.9.20",
+    "uuid": "^8.2.0"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
