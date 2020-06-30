@@ -1,15 +1,6 @@
-GET http://localhost:3000/users
+### CRUD Requests to REST API
 
-
-###
-
-
-GET http://localhost:3000/users/12
-
-
-####
-
-
+#### Requests (POST) appending to user database -- CREATE
 POST http://localhost:3000/users/
 Content-Type: application/json
 
@@ -17,17 +8,22 @@ Content-Type: application/json
   "name": "Alan Vega"
 }
 
+### Requests (GET) information on all users -- READ
+GET http://localhost:3000/users
 
-###
 
-
+### Requests (GET) information on specific user through /users/:id param -- READ
 GET http://localhost:3000/users/5efa0b3bdf8bc4527f1abc08
 
 
-###
+### Requests (PATCH) to update "name" field of user /users/:id -- UPDATE
+PATCH http://localhost:3000/users/5efa0b3bdf8bc4527f1abc08
+Content-Type: application/json
+
+{
+  "name": "New Name"
+}
 
 
+### Requests (DELETE) user -- DELETE
 DELETE http://localhost:3000/users/5efa0b3bdf8bc4527f1abc08
-
-
-###
