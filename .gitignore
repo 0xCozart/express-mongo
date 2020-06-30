@@ -1,5 +1,7 @@
 **node_modules/
 **.env
 
-mock.js/
-mock.test.js/
+mock.js
+mock.test.js
+
+resources/
